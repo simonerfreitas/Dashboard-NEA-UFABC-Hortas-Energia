@@ -1,10 +1,10 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "public",
+  "outputDirectory": "client",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/public/index.html"
+      "destination": "/client/index.html"
     }
   ]
 }
