@@ -1,0 +1,902 @@
+export interface Planta {
+  id: number;
+  nome: string;
+  nomeComum: string;
+  tipo:
+    | "hortaliças e folhas"
+    | "temperos e medicinais"
+    | "tomate"
+    | "trepadeiras"
+    | "árvores frutíferas"
+    | "PANCs"
+    | "legumes"
+    | "tubérculos"
+    | "flores";
+  ciclo: string;
+  alturaMaxima: string;
+  beneficios: string[];
+  producaoEstimada: string;
+  precoCultivar: string;
+  descricao: string;
+  cuidados: string[];
+  imagemUrl: string;
+}
+
+export const plantasRecomendadas: Planta[] = [
+  // ===== HORTALIÇAS E FOLHAS =====
+  {
+    id: 1,
+    nome: "Alface",
+    nomeComum: "Crespa, Lisa, Americana e Roxa",
+    tipo: "hortaliças e folhas",
+    ciclo: "30-45 dias",
+    alturaMaxima: "0,3m",
+    beneficios: ["Vitaminas A, C e K", "Ciclo rápido, múltiplas colheitas", "Alta demanda em feiras", "Ótima rentabilidade em pequenos espaços"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 8-15/kg",
+    descricao: "Hortaliça folhosa de ciclo rápido, cultivada em 4 variedades no anel interno da mandala e nos canteiros retangulares. Altura reduzida e plena conformidade com as normas de segurança.",
+    cuidados: ["Irrigação por gotejamento (nunca ascendente)", "Não deixar o solo secar", "Colher antes do florescimento"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 2,
+    nome: "Couve",
+    nomeComum: "Couve-manteiga",
+    tipo: "hortaliças e folhas",
+    ciclo: "50-70 dias (colheita contínua)",
+    alturaMaxima: "0,8m",
+    beneficios: ["Rica em ferro e cálcio", "Colheita contínua por meses", "Rústica e resistente", "Demanda constante no mercado"],
+    producaoEstimada: "2-4 kg/m²",
+    precoCultivar: "R$ 10-18/kg",
+    descricao: "Folhosa rústica de colheita contínua: retiram-se as folhas externas e a planta segue produzindo por muitos meses, garantindo renda recorrente.",
+    cuidados: ["Adubação orgânica mensal", "Retirar folhas baixas amareladas", "Monitorar pulgões e lagartas"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 3,
+    nome: "Rúcula",
+    nomeComum: "Rúcula Cultivada",
+    tipo: "hortaliças e folhas",
+    ciclo: "25-40 dias",
+    alturaMaxima: "0,3m",
+    beneficios: ["Ciclo muito rápido", "Até 10 cultivos por ano", "Sabor picante valorizado", "Pouco espaço e baixo custo"],
+    producaoEstimada: "1,5-2,5 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Uma das folhosas de ciclo mais curto, ideal para giro rápido de produção e venda em maços. Excelente para o anel interno da mandala.",
+    cuidados: ["Semeadura direta escalonada", "Regar diariamente em calor", "Colher folhas jovens"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 4,
+    nome: "Agrião",
+    nomeComum: "Agrião de Folha Larga",
+    tipo: "hortaliças e folhas",
+    ciclo: "40-60 dias",
+    alturaMaxima: "0,3m",
+    beneficios: ["Rico em vitamina C e antioxidantes", "Rebrota após o corte", "Valorizado na culinária", "Cultivo adensado"],
+    producaoEstimada: "1,5-2 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Folhosa de sabor picante que aprecia umidade constante. No projeto, ocupa o anel de colheita frequente da mandala, próximo ao caminho.",
+    cuidados: ["Manter solo sempre úmido", "Sombreamento parcial no verão", "Cortar deixando 5cm para rebrota"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 5,
+    nome: "Escarola",
+    nomeComum: "Chicória-escarola",
+    tipo: "hortaliças e folhas",
+    ciclo: "60-80 dias",
+    alturaMaxima: "0,3m",
+    beneficios: ["Tolerante ao calor", "Boa conservação pós-colheita", "Uso versátil na culinária", "Preço estável"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 8-14/kg",
+    descricao: "Folhosa de cabeça aberta, muito usada em refogados e pizzas. Complementa o mix de folhas do anel interno da mandala.",
+    cuidados: ["Transplantar mudas com 4 folhas", "Irrigação regular", "Amarrar folhas para branqueamento (opcional)"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 6,
+    nome: "Almeirão",
+    nomeComum: "Almeirão Pão de Açúcar",
+    tipo: "hortaliças e folhas",
+    ciclo: "50-70 dias",
+    alturaMaxima: "0,4m",
+    beneficios: ["Sabor amargo característico", "Rústico, poucas pragas", "Colheita em cortes sucessivos", "Tradição na culinária paulista"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 10-16/kg",
+    descricao: "Folhosa rústica de fácil cultivo, resistente e produtiva, com mercado fiel na região do ABC paulista.",
+    cuidados: ["Semeadura direta ou mudas", "Cortes a 5cm do solo para rebrota", "Regar em estiagens"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 7,
+    nome: "Catalônia",
+    nomeComum: "Chicória Catalonha",
+    tipo: "hortaliças e folhas",
+    ciclo: "60-80 dias",
+    alturaMaxima: "0,4m",
+    beneficios: ["Folhas longas e nutritivas", "Rebrota vigorosa", "Diferencial em feiras", "Baixa exigência"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 10-16/kg",
+    descricao: "Variedade de chicória de folhas serrilhadas, apreciada na culinária ítalo-brasileira, compõe o anel de folhosas da mandala.",
+    cuidados: ["Solo fértil e bem drenado", "Colheita de folhas externas", "Irrigação constante"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 8,
+    nome: "Chicória",
+    nomeComum: "Chicória Lisa/Crespa",
+    tipo: "hortaliças e folhas",
+    ciclo: "60-80 dias",
+    alturaMaxima: "0,3m",
+    beneficios: ["Rica em fibras e minerais", "Boa aceitação no mercado", "Cultivo simples", "Complementa o mix de folhas"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 8-14/kg",
+    descricao: "Folhosa clássica das hortas urbanas, de porte baixo e ciclo médio, totalmente compatível com as normas de altura sob as linhas.",
+    cuidados: ["Transplante com solo úmido", "Adubação de cobertura leve", "Colher cabeças formadas"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 9,
+    nome: "Espinafre",
+    nomeComum: "Espinafre de Nova Zelândia",
+    tipo: "hortaliças e folhas",
+    ciclo: "35-50 dias",
+    alturaMaxima: "0,4m",
+    beneficios: ["Ferro, cálcio e vitaminas", "Ciclo muito rápido", "Tolerante ao calor", "Cortes sucessivos"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 12-20/kg",
+    descricao: "Folhosa nutritiva de crescimento rasteiro, perfeita para produção contínua nos canteiros de 1,5m × 5m.",
+    cuidados: ["Regar regularmente", "Evitar encharcamento", "Colher folhas externas primeiro"],
+    imagemUrl: "🥬"
+  },
+  {
+    id: 10,
+    nome: "Acelga",
+    nomeComum: "Acelga Branca",
+    tipo: "hortaliças e folhas",
+    ciclo: "55-70 dias",
+    alturaMaxima: "0,5m",
+    beneficios: ["Talos e folhas comestíveis", "Alta produtividade", "Visual atrativo na banca", "Colheita prolongada"],
+    producaoEstimada: "3-4 kg/m²",
+    precoCultivar: "R$ 8-14/kg",
+    descricao: "Folhosa de talos brancos suculentos e alta produtividade por área, fecha o anel interno da horta mandala.",
+    cuidados: ["Solo rico em matéria orgânica", "Irrigação frequente", "Colher talos externos"],
+    imagemUrl: "🥬"
+  },
+  // ===== TEMPEROS E MEDICINAIS =====
+  {
+    id: 11,
+    nome: "Cebolinha",
+    nomeComum: "Cebolinha Verde",
+    tipo: "temperos e medicinais",
+    ciclo: "60-80 dias (perene)",
+    alturaMaxima: "0,4m",
+    beneficios: ["Colheita diária", "Rebrota constante", "Essencial na culinária", "Venda em maços com salsinha"],
+    producaoEstimada: "1,5-2,5 kg/m²",
+    precoCultivar: "R$ 20-30/kg",
+    descricao: "Tempero perene de colheita contínua, presente no 2º anel da mandala e no canteiro em espiral. Companheira do tomateiro no consórcio.",
+    cuidados: ["Divisão de touceiras", "Cortar sem arrancar", "Adubação orgânica leve"],
+    imagemUrl: "🌱"
+  },
+  {
+    id: 12,
+    nome: "Salsinha",
+    nomeComum: "Salsa Lisa/Crespa",
+    tipo: "temperos e medicinais",
+    ciclo: "60-90 dias",
+    alturaMaxima: "0,4m",
+    beneficios: ["Alta demanda diária", "Rica em vitaminas", "Par clássico da cebolinha", "Boa margem em maços"],
+    producaoEstimada: "1,5-2 kg/m²",
+    precoCultivar: "R$ 20-30/kg",
+    descricao: "Tempero indispensável, cultivado no anel de temperos da mandala e na espiral de ervas, com colheita quase diária.",
+    cuidados: ["Germinação lenta (paciência)", "Regar sem encharcar", "Colher hastes externas"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 13,
+    nome: "Coentro",
+    nomeComum: "Coentro Verdão",
+    tipo: "temperos e medicinais",
+    ciclo: "40-60 dias",
+    alturaMaxima: "0,5m",
+    beneficios: ["Ciclo rápido", "Forte demanda regional", "Sementes também comercializáveis", "Fácil cultivo"],
+    producaoEstimada: "1,5-2 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Tempero de ciclo curto muito procurado, semeado de forma escalonada para oferta constante nas feiras.",
+    cuidados: ["Semeadura direta", "Não transplantar", "Colher antes do pendoamento"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 14,
+    nome: "Manjericão",
+    nomeComum: "Manjericão Verde e Roxo",
+    tipo: "temperos e medicinais",
+    ciclo: "40-50 dias",
+    alturaMaxima: "0,6m",
+    beneficios: ["Alto valor agregado (pesto, óleos)", "Atrai polinizadores", "Repele pragas do tomate", "Múltiplas colheitas"],
+    producaoEstimada: "1-2 kg/m²",
+    precoCultivar: "R$ 20-35/kg",
+    descricao: "Erva aromática de alto valor, plantada junto ao anel de tomates da mandala como companheira que repele pragas.",
+    cuidados: ["Colher pontas para adensar", "Retirar flores para prolongar folhas", "Sol pleno"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 15,
+    nome: "Hortelã",
+    nomeComum: "Hortelã-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "60-90 dias (perene)",
+    alturaMaxima: "0,4m",
+    beneficios: ["Chás e sucos valorizados", "Perene e vigorosa", "Aroma repelente de pragas", "Uso medicinal digestivo"],
+    producaoEstimada: "1-2 kg/m²",
+    precoCultivar: "R$ 20-30/kg",
+    descricao: "Medicinal perene de crescimento rasteiro, cultivada na espiral de ervas com contenção de raízes para não invadir os canteiros.",
+    cuidados: ["Conter avanço com bordas", "Meia-sombra tolerada", "Cortes frequentes"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 16,
+    nome: "Alecrim",
+    nomeComum: "Alecrim-de-jardim",
+    tipo: "temperos e medicinais",
+    ciclo: "90-120 dias (perene)",
+    alturaMaxima: "0,8m",
+    beneficios: ["Perene de baixa manutenção", "Alto valor seco ou fresco", "Melífero (apoia o meliponário)", "Companheiro do tomate"],
+    producaoEstimada: "0,5-1 kg/m²",
+    precoCultivar: "R$ 30-50/kg",
+    descricao: "Arbusto aromático perene e resistente à seca, plantado no anel de temperos e próximo aos tomates como planta companheira.",
+    cuidados: ["Solo bem drenado", "Pouca água após estabelecido", "Podas leves de colheita"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 17,
+    nome: "Tomilho",
+    nomeComum: "Tomilho-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "90-120 dias (perene)",
+    alturaMaxima: "0,3m",
+    beneficios: ["Porte muito baixo", "Alto valor gastronômico", "Medicinal (antisséptico)", "Atrai abelhas"],
+    producaoEstimada: "0,3-0,6 kg/m²",
+    precoCultivar: "R$ 40-60/kg",
+    descricao: "Erva rasteira mediterrânea de alto valor, ideal para as bordas da espiral de ervas, em plena conformidade de altura.",
+    cuidados: ["Sol pleno e solo drenado", "Evitar excesso de água", "Colher ramos jovens"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 18,
+    nome: "Sálvia",
+    nomeComum: "Sálvia-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "90-120 dias (perene)",
+    alturaMaxima: "0,6m",
+    beneficios: ["Folhas aromáticas valorizadas", "Medicinal tradicional", "Flores atraem polinizadores", "Perene"],
+    producaoEstimada: "0,4-0,8 kg/m²",
+    precoCultivar: "R$ 35-55/kg",
+    descricao: "Erva perene de folhas acinzentadas, integra o banco de sementes medicinais do viveiro e o anel de temperos da mandala.",
+    cuidados: ["Sol pleno", "Podar após floração", "Renovar plantas a cada 3-4 anos"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 19,
+    nome: "Orégano",
+    nomeComum: "Orégano-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "80-100 dias (perene)",
+    alturaMaxima: "0,4m",
+    beneficios: ["Seco multiplica o valor", "Perene e rasteiro", "Pouca exigência hídrica", "Demanda constante"],
+    producaoEstimada: "0,4-0,8 kg/m²",
+    precoCultivar: "R$ 40-70/kg (seco)",
+    descricao: "Tempero perene que pode ser vendido fresco ou desidratado, agregando valor à produção da horta.",
+    cuidados: ["Colher antes da floração para secar", "Sol pleno", "Solo drenado"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 20,
+    nome: "Capim-santo",
+    nomeComum: "Capim-limão / Erva-cidreira-de-capim",
+    tipo: "temperos e medicinais",
+    ciclo: "90-120 dias (perene)",
+    alturaMaxima: "1,0m",
+    beneficios: ["Chá calmante muito procurado", "Touceira perene e rústica", "Óleo essencial (citral)", "Barreira viva baixa"],
+    producaoEstimada: "1-2 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Gramínea aromática perene, cultivada em touceiras no anel de medicinais e na espiral de ervas, sempre abaixo do limite de altura.",
+    cuidados: ["Divisão de touceiras", "Cortes a 20cm do solo", "Sol pleno"],
+    imagemUrl: "🌾"
+  },
+  {
+    id: 21,
+    nome: "Erva-cidreira",
+    nomeComum: "Melissa",
+    tipo: "temperos e medicinais",
+    ciclo: "70-90 dias (perene)",
+    alturaMaxima: "0,6m",
+    beneficios: ["Chá calmante valorizado", "Aroma cítrico agradável", "Atrai abelhas", "Perene de fácil trato"],
+    producaoEstimada: "0,8-1,5 kg/m²",
+    precoCultivar: "R$ 20-35/kg",
+    descricao: "Medicinal clássica dos quintais brasileiros, presente na espiral de ervas e no banco de sementes do viveiro comunitário.",
+    cuidados: ["Meia-sombra tolerada", "Colher antes da floração", "Regar moderadamente"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 22,
+    nome: "Gengibre",
+    nomeComum: "Gengibre-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "8-10 meses",
+    alturaMaxima: "1,0m",
+    beneficios: ["Alto valor por kg", "Rizoma medicinal e culinário", "Cresce à meia-sombra", "Armazenamento longo"],
+    producaoEstimada: "1-3 kg/m²",
+    precoCultivar: "R$ 15-30/kg",
+    descricao: "Rizoma de alto valor cultivado no anel de medicinais, aproveitando a meia-sombra das árvores frutíferas do entorno da mandala.",
+    cuidados: ["Solo fofo e rico", "Plantio de rizomas brotados", "Colher quando folhas amarelam"],
+    imagemUrl: "🫚"
+  },
+  {
+    id: 23,
+    nome: "Açafrão-da-terra",
+    nomeComum: "Cúrcuma",
+    tipo: "temperos e medicinais",
+    ciclo: "8-10 meses",
+    alturaMaxima: "1,0m",
+    beneficios: ["Superalimento em alta demanda", "Pó vale 5-10x o rizoma fresco", "Anti-inflamatório natural", "Belas flores"],
+    producaoEstimada: "1,5-3 kg/m²",
+    precoCultivar: "R$ 20-40/kg",
+    descricao: "Rizoma medicinal de alto valor agregado quando processado em pó, cultivado junto ao gengibre no anel de medicinais.",
+    cuidados: ["Mesmo manejo do gengibre", "Colher após secagem das folhas", "Secar rizomas à sombra"],
+    imagemUrl: "🫚"
+  },
+  {
+    id: 24,
+    nome: "Boldo",
+    nomeComum: "Boldo-nacional",
+    tipo: "temperos e medicinais",
+    ciclo: "Perene",
+    alturaMaxima: "1,5m",
+    beneficios: ["Medicinal digestivo tradicional", "Propagação fácil por estaca", "Rústico, quase sem pragas", "Folhas o ano todo"],
+    producaoEstimada: "0,5-1 kg/m²",
+    precoCultivar: "R$ 20-35/kg",
+    descricao: "Arbusto medicinal perene mantido com poda abaixo de 2m, integrante do banco de medicinais do viveiro.",
+    cuidados: ["Poda de contenção", "Estacas para novas mudas", "Sol pleno ou meia-sombra"],
+    imagemUrl: "🌿"
+  },
+  {
+    id: 25,
+    nome: "Citronela",
+    nomeComum: "Capim-citronela",
+    tipo: "temperos e medicinais",
+    ciclo: "Perene",
+    alturaMaxima: "1,2m",
+    beneficios: ["Repelente natural de insetos", "Óleo essencial valorizado", "Touceira ornamental", "Barreira de borda"],
+    producaoEstimada: "1-2 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Gramínea aromática repelente, plantada nas bordas da área de descanso para conforto dos visitantes.",
+    cuidados: ["Divisão de touceiras", "Corte periódico das folhas", "Rústica, pouca água"],
+    imagemUrl: "🌾"
+  },
+  {
+    id: 26,
+    nome: "Arruda",
+    nomeComum: "Arruda-comum",
+    tipo: "temperos e medicinais",
+    ciclo: "Perene",
+    alturaMaxima: "0,8m",
+    beneficios: ["Forte tradição cultural", "Repele insetos", "Venda de ramos constante", "Rústica"],
+    producaoEstimada: "0,3-0,6 kg/m²",
+    precoCultivar: "R$ 30-50/kg",
+    descricao: "Medicinal tradicional de forte demanda cultural em feiras, fecha o anel de temperos e medicinais da mandala.",
+    cuidados: ["Sol pleno", "Solo drenado", "Manusear com luvas (fotossensibilizante)"],
+    imagemUrl: "🌿"
+  },
+  // ===== TOMATE =====
+  {
+    id: 27,
+    nome: "Tomate",
+    nomeComum: "Tomate de Polinização Aberta",
+    tipo: "tomate",
+    ciclo: "90-120 dias",
+    alturaMaxima: "2,0m (tutorado)",
+    beneficios: ["Alta rentabilidade por planta", "Sementes crioulas reaproveitáveis", "Consórcio com manjericão e tagetes", "Anel externo da mandala"],
+    producaoEstimada: "4-8 kg/m²",
+    precoCultivar: "R$ 8-15/kg",
+    descricao: "Cultivado no 5º anel da mandala, no lado mais ensolarado, com tutor vertical de até 2m e 60cm entre plantas, consorciado com manjericão, cebolinha, salsinha, alecrim e tagetes.",
+    cuidados: ["Tutor vertical (máx. 2m)", "60cm entre plantas", "Desbrota semanal", "Irrigação por gotejamento"],
+    imagemUrl: "🍅"
+  },
+  {
+    id: 28,
+    nome: "Tomate Cereja",
+    nomeComum: "Tomate Cereja Vermelho e Amarelo",
+    tipo: "tomate",
+    ciclo: "80-100 dias",
+    alturaMaxima: "1,8m (tutorado)",
+    beneficios: ["Preço superior ao tomate comum", "Colheita prolongada", "Rústico e produtivo", "Atrativo em bandejas"],
+    producaoEstimada: "3-6 kg/m²",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Variedade de frutos pequenos e doces com excelente valor de mercado, cultivada no anel externo junto ao tomate comum.",
+    cuidados: ["Tutoramento firme", "Colher cachos maduros", "Rotação de canteiro anual"],
+    imagemUrl: "🍅"
+  },
+  // ===== TREPADEIRAS =====
+  {
+    id: 29,
+    nome: "Maracujá",
+    nomeComum: "Maracujá-azedo e Doce",
+    tipo: "trepadeiras",
+    ciclo: "9-12 meses (1ª safra)",
+    alturaMaxima: "2,0m (conduzido)",
+    beneficios: ["Polpa e suco valorizados", "Flores atraem polinizadores", "Sombra no pergolado", "Produção por 3-4 anos"],
+    producaoEstimada: "10-20 kg/planta/ano",
+    precoCultivar: "R$ 8-15/kg",
+    descricao: "Trepadeira frutífera conduzida no pergolado 1 e na borda da mandala em cerca e espaldeira, sempre limitada a 2m de altura.",
+    cuidados: ["Condução em espaldeira/pergolado", "Polinização manual aumenta frutos", "Adubação orgânica trimestral"],
+    imagemUrl: "🍈"
+  },
+  {
+    id: 30,
+    nome: "Chuchu",
+    nomeComum: "Chuchu Verde-claro",
+    tipo: "trepadeiras",
+    ciclo: "90-120 dias",
+    alturaMaxima: "2,0m (conduzido)",
+    beneficios: ["Produção abundante", "Brotos (PANC) também vendáveis", "Rústico", "Sombra produtiva no pergolado"],
+    producaoEstimada: "15-30 kg/planta/ano",
+    precoCultivar: "R$ 4-8/kg",
+    descricao: "Trepadeira vigorosa do pergolado 1, produz frutos, brotos comestíveis e sombra para a área de descanso.",
+    cuidados: ["Plantar fruto inteiro brotado", "Condução constante dos ramos", "Colher frutos jovens"],
+    imagemUrl: "🥒"
+  },
+  {
+    id: 31,
+    nome: "Feijão-de-metro",
+    nomeComum: "Feijão-de-vagem-comprida",
+    tipo: "trepadeiras",
+    ciclo: "60-80 dias",
+    alturaMaxima: "2,0m (conduzido)",
+    beneficios: ["Vagens de até 1m chamam atenção", "Ciclo curto para trepadeira", "Fixa nitrogênio no solo", "Curiosidade que vende"],
+    producaoEstimada: "1,5-3 kg/m²",
+    precoCultivar: "R$ 10-18/kg",
+    descricao: "Trepadeira anual do pergolado 2, de vagens longas e tenras, enriquece o solo com nitrogênio.",
+    cuidados: ["Semear direto na base do pergolado", "Colher vagens jovens", "Renovar plantio anual"],
+    imagemUrl: "🫛"
+  },
+  {
+    id: 32,
+    nome: "Inhame-trepador",
+    nomeComum: "Cará-do-ar",
+    tipo: "trepadeiras",
+    ciclo: "6-8 meses",
+    alturaMaxima: "2,0m (conduzido)",
+    beneficios: ["Bulbilhos aéreos comestíveis", "PANC de alto interesse", "Perene por tubérculos", "Pouquíssimas pragas"],
+    producaoEstimada: "2-5 kg/planta",
+    precoCultivar: "R$ 12-20/kg",
+    descricao: "Trepadeira PANC do pergolado 2 que produz batatas aéreas nutritivas, despertando curiosidade nas visitas educativas.",
+    cuidados: ["Plantar bulbilhos na primavera", "Colher bulbilhos maduros", "Condução no pergolado"],
+    imagemUrl: "🥔"
+  },
+  {
+    id: 33,
+    nome: "Cipó-de-São-João",
+    nomeComum: "Pyrostegia venusta",
+    tipo: "trepadeiras",
+    ciclo: "Perene",
+    alturaMaxima: "2,0m (conduzido)",
+    beneficios: ["Floração alaranjada exuberante", "Nativa, atrai beija-flores e abelhas", "Ornamental no pergolado", "Rústica"],
+    producaoEstimada: "Ornamental/melífera",
+    precoCultivar: "Mudas: R$ 15-30/un",
+    descricao: "Trepadeira nativa ornamental do pergolado 2, com flores tubulares alaranjadas que apoiam o meliponário.",
+    cuidados: ["Poda de contenção a 2m", "Condução dos ramos", "Sol pleno"],
+    imagemUrl: "🌺"
+  },
+  // ===== ÁRVORES FRUTÍFERAS =====
+  {
+    id: 34,
+    nome: "Acerola",
+    nomeComum: "Cereja-das-Antilhas",
+    tipo: "árvores frutíferas",
+    ciclo: "2-3 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Altíssimo teor de vitamina C", "3-4 safras por ano", "Aceita bem poda baixa", "Polpa congelada valorizada"],
+    producaoEstimada: "5-15 kg/planta/ano",
+    precoCultivar: "R$ 10-18/kg",
+    descricao: "Frutífera de pequeno porte plantada junto à cerca perimetral, mantida a 2m com poda de contenção.",
+    cuidados: ["Poda de contenção anual", "Colher frutos maduros (delicados)", "Adubação orgânica"],
+    imagemUrl: "🍒"
+  },
+  {
+    id: 35,
+    nome: "Goiaba",
+    nomeComum: "Goiaba Vermelha",
+    tipo: "árvores frutíferas",
+    ciclo: "2-3 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Aceita poda drástica", "Frutifica em ramos novos", "Polpa e doces valorizados", "Meia-sombra para a mandala"],
+    producaoEstimada: "10-20 kg/planta/ano",
+    precoCultivar: "R$ 6-12/kg",
+    descricao: "Frutífera versátil conduzida em porte baixo junto à cerca e no entorno da mandala, fornecendo meia-sombra sem violar normas.",
+    cuidados: ["Poda de frutificação anual", "Ensacar frutos contra moscas", "Irrigação no florescimento"],
+    imagemUrl: "🍈"
+  },
+  {
+    id: 36,
+    nome: "Limão",
+    nomeComum: "Limão-tahiti",
+    tipo: "árvores frutíferas",
+    ciclo: "2-3 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Demanda constante o ano todo", "Enxertos anões disponíveis", "Boa conservação", "Preço estável"],
+    producaoEstimada: "15-30 kg/planta/ano",
+    precoCultivar: "R$ 5-10/kg",
+    descricao: "Cítrico enxertado em porta-enxerto anão, plantado junto à cerca e no entorno da mandala para meia-sombra.",
+    cuidados: ["Poda de condução baixa", "Adubação rica em potássio", "Monitorar cochonilhas"],
+    imagemUrl: "🍋"
+  },
+  {
+    id: 37,
+    nome: "Laranja",
+    nomeComum: "Laranja-lima Anã",
+    tipo: "árvores frutíferas",
+    ciclo: "3-4 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Enxerto anão compatível com normas", "Fruta doce popular", "Flores melíferas", "Sombra leve"],
+    producaoEstimada: "10-25 kg/planta/ano",
+    precoCultivar: "R$ 4-8/kg",
+    descricao: "Cítrico anão do entorno da mandala e da cerca, com flores que alimentam as abelhas do meliponário.",
+    cuidados: ["Poda de contenção", "Irrigação regular no pegamento", "Adubação de cobertura"],
+    imagemUrl: "🍊"
+  },
+  {
+    id: 38,
+    nome: "Cambuci",
+    nomeComum: "Campomanesia phaea (nativa)",
+    tipo: "árvores frutíferas",
+    ciclo: "3-5 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Nativa da Mata Atlântica paulista", "Fruto ácido gourmet valorizado", "Identidade regional (ABC)", "Mudas no viveiro comunitário"],
+    producaoEstimada: "5-10 kg/planta/ano",
+    precoCultivar: "R$ 20-40/kg",
+    descricao: "Frutífera nativa símbolo da região, cultivada junto à cerca e multiplicada no viveiro comunitário a partir do banco de sementes.",
+    cuidados: ["Poda leve de formação", "Solo úmido e rico", "Paciência até a 1ª safra"],
+    imagemUrl: "🍐"
+  },
+  {
+    id: 39,
+    nome: "Pitanga",
+    nomeComum: "Eugenia uniflora (nativa)",
+    tipo: "árvores frutíferas",
+    ciclo: "2-3 anos (1ª safra)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Nativa rústica", "Frutos delicados de nicho", "Ótima em cerca viva baixa", "Mudas no viveiro"],
+    producaoEstimada: "3-8 kg/planta/ano",
+    precoCultivar: "R$ 15-30/kg",
+    descricao: "Nativa da Mata Atlântica conduzida como cerca viva frutífera junto ao muro, também produzida em mudas no viveiro.",
+    cuidados: ["Aceita poda de topiaria", "Colher frutos bem maduros", "Rústica após estabelecida"],
+    imagemUrl: "🍒"
+  },
+  {
+    id: 40,
+    nome: "Jabuticaba",
+    nomeComum: "Plinia cauliflora (nativa)",
+    tipo: "árvores frutíferas",
+    ciclo: "6-8 anos (1ª safra, enxertada: 3-4)",
+    alturaMaxima: "2,0m (com poda)",
+    beneficios: ["Fruto no tronco (atração visual)", "Alto valor em feiras", "Nativa querida do público", "Mudas enxertadas precoces"],
+    producaoEstimada: "5-15 kg/planta/ano (adulta)",
+    precoCultivar: "R$ 15-25/kg",
+    descricao: "Nativa de crescimento lento mantida em porte baixo, integra o banco de espécies do viveiro e o pomar da cerca.",
+    cuidados: ["Irrigação constante", "Poda de contenção leve", "Preferir mudas enxertadas"],
+    imagemUrl: "🫐"
+  },
+  // ===== PANCs =====
+  {
+    id: 41,
+    nome: "Ora-pro-nóbis",
+    nomeComum: "Pereskia aculeata",
+    tipo: "PANCs",
+    ciclo: "60-90 dias (perene)",
+    alturaMaxima: "2,0m (conduzida)",
+    beneficios: ["25% de proteína nas folhas", "PANC estrela em alta demanda", "Perene e rústica", "Trepadeira de pergolado e cerca"],
+    producaoEstimada: "2-4 kg/m²/ano",
+    precoCultivar: "R$ 25-50/kg",
+    descricao: "A 'carne dos pobres': folhas ricas em proteína, conduzida no pergolado 1, na borda da mandala e nos canteiros de PANCs.",
+    cuidados: ["Poda de condução (espinhos!)", "Colher folhas jovens", "Estacas enraízam fácil"],
+    imagemUrl: "🌵"
+  },
+  {
+    id: 42,
+    nome: "Taioba",
+    nomeComum: "Xanthosoma taioba",
+    tipo: "PANCs",
+    ciclo: "90-120 dias (perene)",
+    alturaMaxima: "1,2m",
+    beneficios: ["Folhas grandes nutritivas", "Cresce à meia-sombra", "Perene por rizomas", "Tradição na culinária mineira/caipira"],
+    producaoEstimada: "2-3 kg/m²",
+    precoCultivar: "R$ 15-30/kg",
+    descricao: "PANC de folhas largas cultivada nos canteiros de PANCs à meia-sombra das frutíferas. Atenção: só a variedade comestível.",
+    cuidados: ["Sempre refogar (nunca crua)", "Manter solo úmido", "Dividir touceiras"],
+    imagemUrl: "🍃"
+  },
+  {
+    id: 43,
+    nome: "Peixinho",
+    nomeComum: "Stachys byzantina",
+    tipo: "PANCs",
+    ciclo: "70-90 dias (perene)",
+    alturaMaxima: "0,4m",
+    beneficios: ["Folhas aveludadas empanadas = 'peixe vegetal'", "Forrageira ornamental", "Porte baixíssimo", "Curiosidade gastronômica"],
+    producaoEstimada: "1-2 kg/m²",
+    precoCultivar: "R$ 20-40/kg",
+    descricao: "PANC de folhas macias e prateadas, sucesso em oficinas de culinária, cultivada nos canteiros baixos com total conformidade.",
+    cuidados: ["Sol pleno", "Evitar folhas molhadas por muito tempo", "Colher folhas médias"],
+    imagemUrl: "🍃"
+  },
+  {
+    id: 44,
+    nome: "Bertalha",
+    nomeComum: "Espinafre-de-vinha",
+    tipo: "PANCs",
+    ciclo: "60-80 dias",
+    alturaMaxima: "2,0m (conduzida)",
+    beneficios: ["Folhas suculentas tipo espinafre", "Trepadeira produtiva no calor", "PANC tradicional fluminense", "Cresce onde alface sofre"],
+    producaoEstimada: "2-4 kg/m²",
+    precoCultivar: "R$ 12-22/kg",
+    descricao: "Trepadeira folhosa do pergolado 2, produz abundantemente no verão quando as folhosas tradicionais definham.",
+    cuidados: ["Condução no pergolado", "Colher brotos e folhas jovens", "Regar bem no calor"],
+    imagemUrl: "🍃"
+  },
+  {
+    id: 45,
+    nome: "Maxixe",
+    nomeComum: "Cucumis anguria",
+    tipo: "PANCs",
+    ciclo: "60-70 dias",
+    alturaMaxima: "0,5m (rasteiro)",
+    beneficios: ["Rasteiro, conformidade total", "Rústico no calor", "Tradição nordestina (mercado fiel)", "Sementes crioulas no banco"],
+    producaoEstimada: "2-4 kg/m²",
+    precoCultivar: "R$ 8-15/kg",
+    descricao: "Cucurbitácea rasteira de ciclo curto, integra as hortaliças crioulas do banco de sementes do viveiro.",
+    cuidados: ["Semeadura direta no calor", "Colher frutos jovens", "Cobertura morta no solo"],
+    imagemUrl: "🥒"
+  },
+  // ===== LEGUMES =====
+  {
+    id: 46,
+    nome: "Quiabo",
+    nomeComum: "Quiabo Santa Cruz",
+    tipo: "legumes",
+    ciclo: "60-80 dias",
+    alturaMaxima: "1,8m",
+    beneficios: ["Colheita prolongada (2-3 meses)", "Rústico no calor", "Variedade crioula no banco de sementes", "Boa margem no verão"],
+    producaoEstimada: "2-4 kg/m²",
+    precoCultivar: "R$ 8-15/kg",
+    descricao: "Legume tropical do 4º anel da mandala, mantido abaixo de 2m, com sementes crioulas guardadas no viveiro.",
+    cuidados: ["Colher vagens a cada 2 dias", "Usar luvas na colheita", "Sol pleno"],
+    imagemUrl: "🫑"
+  },
+  {
+    id: 47,
+    nome: "Pimentão",
+    nomeComum: "Pimentão Verde/Vermelho/Amarelo",
+    tipo: "legumes",
+    ciclo: "90-120 dias",
+    alturaMaxima: "1,0m",
+    beneficios: ["Colorido valoriza a banca", "Colheita por vários meses", "Tutoramento simples", "Demanda estável"],
+    producaoEstimada: "3-5 kg/m²",
+    precoCultivar: "R$ 8-16/kg",
+    descricao: "Legume do 4º anel da mandala, de porte baixo e produção prolongada, colhido verde ou maduro conforme o mercado.",
+    cuidados: ["Tutor simples de bambu", "Adubação de cobertura mensal", "Irrigação regular"],
+    imagemUrl: "🫑"
+  },
+  {
+    id: 48,
+    nome: "Jiló",
+    nomeComum: "Jiló Comprido Verde-claro",
+    tipo: "legumes",
+    ciclo: "80-100 dias",
+    alturaMaxima: "1,5m",
+    beneficios: ["Mercado fiel regional", "Colheita longa", "Variedade crioula preservada", "Rústico"],
+    producaoEstimada: "3-5 kg/m²",
+    precoCultivar: "R$ 8-14/kg",
+    descricao: "Solanácea tradicional do 4º anel, com sementes de polinização aberta multiplicadas no banco de sementes crioulas.",
+    cuidados: ["Colher frutos verdes", "Poda de ramos baixos", "Rotação com folhosas"],
+    imagemUrl: "🍆"
+  },
+  // ===== TUBÉRCULOS =====
+  {
+    id: 49,
+    nome: "Cenoura e Beterraba",
+    nomeComum: "Raízes de Ciclo Curto",
+    tipo: "tubérculos",
+    ciclo: "60-80 dias",
+    alturaMaxima: "0,5m",
+    beneficios: ["Crescem sob o solo (zero risco aéreo)", "Beta-caroteno e antioxidantes", "Folhas de beterraba comestíveis", "Boa conservação"],
+    producaoEstimada: "3-4 kg/m²",
+    precoCultivar: "R$ 5-15/kg",
+    descricao: "Raízes do 4º anel da mandala: ocupam pouco espaço vertical e não interferem com os cabos aéreos, conformidade máxima.",
+    cuidados: ["Solo profundo e fofo (30cm)", "Desbaste após germinação", "Colher no ponto (2-7cm diâmetro)"],
+    imagemUrl: "🥕"
+  },
+  {
+    id: 50,
+    nome: "Batata-doce",
+    nomeComum: "Batata-doce Rosada",
+    tipo: "tubérculos",
+    ciclo: "100-120 dias",
+    alturaMaxima: "0,4m (rasteira)",
+    beneficios: ["Rasteira: conformidade total", "Ramas também comestíveis (PANC)", "Rústica, tolera seca", "Demanda fitness crescente"],
+    producaoEstimada: "2-4 kg/m²",
+    precoCultivar: "R$ 4-8/kg",
+    descricao: "Tubérculo rasteiro do 4º anel e dos canteiros, cobre o solo, exige pouco e tem mercado crescente. Cebola e alho-poró completam o anel.",
+    cuidados: ["Plantio por ramas", "Amontoa aos 60 dias", "Colher antes de rachaduras"],
+    imagemUrl: "🍠"
+  },
+  // ===== FLORES =====
+  {
+    id: 51,
+    nome: "Tagetes",
+    nomeComum: "Cravo-de-defunto",
+    tipo: "flores",
+    ciclo: "45-60 dias",
+    alturaMaxima: "0,5m",
+    beneficios: ["Controla nematoides do solo", "Atrai insetos benéficos", "Companheira do tomate", "Flores comestíveis"],
+    producaoEstimada: "Serviço ecológico + flores",
+    precoCultivar: "R$ 20-40/kg (flores)",
+    descricao: "Flor funcional do 3º anel da mandala e companheira do anel de tomates, protegendo as raízes contra nematoides.",
+    cuidados: ["Semear entre os tomates", "Retirar flores velhas", "Sol pleno"],
+    imagemUrl: "🌼"
+  },
+  {
+    id: 52,
+    nome: "Capuchinha",
+    nomeComum: "Tropaeolum majus",
+    tipo: "flores",
+    ciclo: "50-70 dias",
+    alturaMaxima: "0,4m",
+    beneficios: ["Flores e folhas comestíveis", "Desvia pulgões das hortaliças", "Gastronomia gourmet", "Rasteira ornamental"],
+    producaoEstimada: "0,5-1 kg/m² (flores+folhas)",
+    precoCultivar: "R$ 40-80/kg (flores)",
+    descricao: "Flor comestível do 3º anel, usada como cultura-armadilha para pulgões e vendida para restaurantes.",
+    cuidados: ["Solo pobre produz mais flores", "Colher flores de manhã", "Ressemeia sozinha"],
+    imagemUrl: "🌸"
+  },
+  {
+    id: 53,
+    nome: "Calêndula",
+    nomeComum: "Calendula officinalis",
+    tipo: "flores",
+    ciclo: "45-60 dias",
+    alturaMaxima: "0,6m",
+    beneficios: ["Medicinal (cicatrizante)", "Pétalas comestíveis", "Atrai abelhas do meliponário", "Flores secas de alto valor"],
+    producaoEstimada: "1-1,5 kg/m² (flores secas)",
+    precoCultivar: "R$ 30-50/kg (seca)",
+    descricao: "Flor medicinal do 3º anel, colhida para chás, pomadas e saladas, integrando produção e serviço de polinização.",
+    cuidados: ["Regar moderadamente", "Colher no auge da floração", "Secar à sombra ventilada"],
+    imagemUrl: "🌼"
+  },
+  {
+    id: 54,
+    nome: "Zínia",
+    nomeComum: "Zinnia elegans",
+    tipo: "flores",
+    ciclo: "60-70 dias",
+    alturaMaxima: "0,8m",
+    beneficios: ["Floresce por muitos meses", "Atrai borboletas", "Flor de corte vendável", "Cores vibrantes na mandala"],
+    producaoEstimada: "Flores de corte",
+    precoCultivar: "R$ 10-20/maço",
+    descricao: "Flor de longa floração do 3º anel, embeleza a horta, atrai polinizadores e ainda rende maços de flor de corte.",
+    cuidados: ["Sol pleno", "Cortar flores estimula novas", "Espaçar bem (fungos)"],
+    imagemUrl: "🌸"
+  },
+  {
+    id: 55,
+    nome: "Cosmos e Girassol-anão",
+    nomeComum: "Dupla dos Polinizadores",
+    tipo: "flores",
+    ciclo: "50-70 dias",
+    alturaMaxima: "1,0m (variedades anãs)",
+    beneficios: ["Muito atrativos para abelhas", "Girassol fornece sementes", "Autossemeadura do cosmos", "Fecham o anel de flores"],
+    producaoEstimada: "Sementes + serviço ecológico",
+    precoCultivar: "R$ 15-30/kg (sementes)",
+    descricao: "Dupla que completa o 3º anel: cosmos alimenta polinizadores continuamente e o girassol-anão produz sementes, sempre em variedades baixas.",
+    cuidados: ["Usar apenas variedades anãs (<1m)", "Sol pleno", "Colher sementes maduras do girassol"],
+    imagemUrl: "🌻"
+  }
+];
+
+export interface CalculoViabilidade {
+  cultura: string;
+  area: number; // m²
+  producaoEstimada: number; // kg
+  precoMedio: number; // R$/kg
+  receitaBruta: number; // R$
+  custosEstimados: number; // R$
+  lucroLiquido: number; // R$
+  roi: number; // %
+  diasCiclo: number;
+  colheitasAno: number;
+}
+
+export function calcularViabilidade(
+  cultura: string,
+  area: number,
+  precoMedio: number
+): CalculoViabilidade {
+  const culturaData: Record<string, { producao: number; custos: number; dias: number }> = {
+    "Alface": { producao: 2.5, custos: 50, dias: 40 },
+    "Couve": { producao: 3, custos: 55, dias: 60 },
+    "Rúcula": { producao: 2, custos: 45, dias: 32 },
+    "Agrião": { producao: 1.8, custos: 50, dias: 50 },
+    "Escarola": { producao: 2.5, custos: 50, dias: 70 },
+    "Almeirão": { producao: 2.5, custos: 48, dias: 60 },
+    "Catalônia": { producao: 2.5, custos: 48, dias: 70 },
+    "Chicória": { producao: 2.5, custos: 50, dias: 70 },
+    "Espinafre": { producao: 2.5, custos: 55, dias: 42 },
+    "Acelga": { producao: 3.5, custos: 55, dias: 62 },
+    "Cebolinha": { producao: 2, custos: 60, dias: 70 },
+    "Salsinha": { producao: 1.8, custos: 60, dias: 75 },
+    "Coentro": { producao: 1.8, custos: 50, dias: 50 },
+    "Manjericão": { producao: 1.5, custos: 60, dias: 45 },
+    "Hortelã": { producao: 1.5, custos: 55, dias: 75 },
+    "Alecrim": { producao: 0.8, custos: 65, dias: 105 },
+    "Tomilho": { producao: 0.5, custos: 70, dias: 105 },
+    "Sálvia": { producao: 0.6, custos: 68, dias: 105 },
+    "Orégano": { producao: 0.6, custos: 60, dias: 90 },
+    "Capim-santo": { producao: 1.5, custos: 40, dias: 105 },
+    "Erva-cidreira": { producao: 1.2, custos: 45, dias: 80 },
+    "Gengibre": { producao: 2, custos: 90, dias: 270 },
+    "Açafrão-da-terra": { producao: 2.2, custos: 90, dias: 270 },
+    "Boldo": { producao: 0.8, custos: 40, dias: 120 },
+    "Citronela": { producao: 1.5, custos: 35, dias: 120 },
+    "Arruda": { producao: 0.5, custos: 50, dias: 120 },
+    "Tomate": { producao: 6, custos: 120, dias: 105 },
+    "Tomate Cereja": { producao: 4.5, custos: 110, dias: 90 },
+    "Maracujá": { producao: 3, custos: 80, dias: 300 },
+    "Chuchu": { producao: 5, custos: 60, dias: 105 },
+    "Feijão-de-metro": { producao: 2.2, custos: 55, dias: 70 },
+    "Inhame-trepador": { producao: 2, custos: 50, dias: 210 },
+    "Acerola": { producao: 2, custos: 70, dias: 365 },
+    "Goiaba": { producao: 3, custos: 70, dias: 365 },
+    "Limão": { producao: 4, custos: 75, dias: 365 },
+    "Laranja": { producao: 3.5, custos: 75, dias: 365 },
+    "Cambuci": { producao: 1.5, custos: 80, dias: 365 },
+    "Pitanga": { producao: 1.2, custos: 60, dias: 365 },
+    "Jabuticaba": { producao: 2, custos: 85, dias: 365 },
+    "Ora-pro-nóbis": { producao: 3, custos: 45, dias: 75 },
+    "Taioba": { producao: 2.5, custos: 45, dias: 105 },
+    "Peixinho": { producao: 1.5, custos: 50, dias: 80 },
+    "Bertalha": { producao: 3, custos: 50, dias: 70 },
+    "Maxixe": { producao: 3, custos: 45, dias: 65 },
+    "Quiabo": { producao: 3, custos: 60, dias: 70 },
+    "Pimentão": { producao: 4, custos: 90, dias: 105 },
+    "Jiló": { producao: 4, custos: 70, dias: 90 },
+    "Cenoura e Beterraba": { producao: 3.5, custos: 75, dias: 70 },
+    "Batata-doce": { producao: 3, custos: 50, dias: 110 },
+    "Tagetes": { producao: 1, custos: 40, dias: 52 },
+    "Capuchinha": { producao: 0.8, custos: 45, dias: 60 },
+    "Calêndula": { producao: 1.2, custos: 40, dias: 50 },
+    "Zínia": { producao: 1, custos: 40, dias: 65 },
+    "Cosmos e Girassol-anão": { producao: 1, custos: 40, dias: 60 }
+  };
+
+  const dados = culturaData[cultura] || { producao: 2, custos: 60, dias: 50 };
+  const producaoEstimada = area * dados.producao;
+  const receitaBruta = producaoEstimada * precoMedio;
+  const custosEstimados = area * dados.custos;
+  const lucroLiquido = receitaBruta - custosEstimados;
+  const roi = (lucroLiquido / custosEstimados) * 100;
+  const colheitasAno = Math.floor(365 / dados.dias);
+
+  return {
+    cultura,
+    area,
+    producaoEstimada,
+    precoMedio,
+    receitaBruta,
+    custosEstimados,
+    lucroLiquido,
+    roi,
+    diasCiclo: dados.dias,
+    colheitasAno
+  };
+}
