@@ -11,7 +11,7 @@
 
 Dashboard interativo desenvolvido em React para análise das normas de segurança da **Cartilha do Comodatário da ENEL Brasil**, com foco na implantação de **hortas urbanas sob faixas de torres de transmissão de alta tensão** na região da Mata Atlântica.
 
-O projeto inclui visualizações do projeto paisagístico com canteiros, árvores frutíferas tropicais, meliponário, composteira e estruturas de apoio, respeitando as distâncias de segurança exigidas pela ENEL. Link para visualizar o projeto: https://enelcartilha-3mt4vqny.manus.space ou http://192.168.0.7:3000/
+O projeto inclui visualizações do projeto paisagístico com canteiros, árvores frutíferas tropicais, meliponário, composteira e estruturas de apoio, respeitando as distâncias de segurança exigidas pela ENEL. Link para visualizar o projeto: https://enelcartilha-3mt4vqny.manus.space
 
 ---
 
